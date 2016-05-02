@@ -8,9 +8,9 @@ function shift_cipher_menu() {
         'access callback' => TRUE,
         'type' => MENU_NORMAL_ITEM,
     );
-    $items[shift_ciphor_success_page] = array(
+    $items[shift_cipher_success_page] = array(
         'title' => 'Success',
-        'page callback' => 'shift_ciphor_success',
+        'page callback' => 'shift_cipher_success',
         'access callback' => TRUE,
         'type' => MENU_CALLBACK,
     );
@@ -22,7 +22,7 @@ function shift_cipher_form() {
         '#title' => 'Shift Value',
         '#type' => 'textfield',
         '#description' => t('Please enter the number of letters you would like to shift.'),
-        '#element_validate' => array('element_validate_integer_positive'),
+        '#element_validate' => array('element_validate_integer_positive', 'element_validate_range'),
         '#required' => TRUE,
     );
     $form['shift_direction'] = array (
@@ -46,6 +46,13 @@ function shift_cipher_form() {
     return $form;
 }
 
+function element_validate_range($element) {
+    $value = $element['#value'];
+    if ($value > 25) {
+        form_error($element, t('Please enter a value between 1 and 25.'));
+    }
+}
+
 function element_validate_direction($element) {
     $direction = strtolower($element['#value']);
     if ($direction !== 'right' && $direction !== 'left') {
@@ -55,7 +62,49 @@ function element_validate_direction($element) {
 
 function element_validate_characters($element) {
     $phrase = $element['#value'];
-    if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $phrase)) {
+    if (preg_match('/[\^£$%&*()}{@#~?><>|=_+¬-]/', $phrase)) {
         form_error($element, t('Please avoid using any special characters.'));
     }
+}
+
+function shift_cipher_form_submit($form, &$form_state) {
+    $alphabet_key = array('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');
+
+    $value = $form_state['values']['shift_value'];
+    $direction = $form_state['values']['shift_direction'];
+    $phrase = str_split($form_state['values']['shift_phrase']);
+    $encrypted_array = array();
+
+    foreach ($phrase as $letter) {
+      if (preg_match('/[!?.,":;\'\-\s*]/', $letter) === 1) {
+          array_push($encrypted_array, $letter);
+      } else {
+          for ($i = 0; $i < count($alphabet_key); $i++) {
+              if ($alphabet_key[$i] === $letter || strtoupper($alphabet_key[$i]) === $letter) {
+                  if ($direction === 'right') {
+                      $shifted_value = $i + $value;
+                  } else {
+                      $shifted_value = $i - $value;
+                  }
+                  if ($shifted_value < 0 || $shifted_value > 25) {
+                      $shifted_value = abs($shifted_value % 26);
+                  }
+                  if ($letter === strtoupper($alphabet_key[$i])) {
+                      array_push($encrypted_array, strtoupper($alphabet_key[$shifted_value]));
+                  } else {
+                      array_push($encrypted_array, $alphabet_key[$shifted_value]);
+                  }
+              }
+          }
+      }
+    }
+    $encrypted_text = implode($encrypted_array);
+    $_SESSION['encryption'] = $encrypted_text;
+
+    $form_state['redirect'] = 'shift_cipher_success_page';
+}
+
+function shift_cipher_success() {
+    $cipher = $_SESSION['encryption'];
+    return 'Here is your encrypted message: ' . $cipher;
 }
