@@ -1,0 +1,61 @@
+<?php
+
+function shift_cipher_menu() {
+    $items[shift_cipher] = array (
+        'title' => 'Shift Cipher',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array(shift_cipher_form),
+        'access callback' => TRUE,
+        'type' => MENU_NORMAL_ITEM,
+    );
+    $items[shift_ciphor_success_page] = array(
+        'title' => 'Success',
+        'page callback' => 'shift_ciphor_success',
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK,
+    );
+    return $items;
+}
+
+function shift_cipher_form() {
+    $form['shift_value'] = array (
+        '#title' => 'Shift Value',
+        '#type' => 'textfield',
+        '#description' => t('Please enter the number of letters you would like to shift.'),
+        '#element_validate' => array('element_validate_integer_positive'),
+        '#required' => TRUE,
+    );
+    $form['shift_direction'] = array (
+        '#title' => 'Shift Direction',
+        '#type' => 'textfield',
+        '#description' => t('Please enter the direction to shifr, either left or right.'),
+        '#element_validate' => array('element_validate_direction'),
+        '#required' => TRUE,
+    );
+    $form['shift_phrase'] = array (
+        '#title' => 'Shift Phrase',
+        '#type' => 'textfield',
+        '#description' => t('Please enter the phrase you would like to encrypt.'),
+        '#element_validate' => array('element_validate_characters'),
+        '#required' => TRUE,
+    );
+    $form['submit'] = array(
+        '#type' => 'submit',
+        '#value' => 'Encrypt',
+    );
+    return $form;
+}
+
+function element_validate_direction($element) {
+    $direction = strtolower($element['#value']);
+    if ($direction !== 'right' && $direction !== 'left') {
+        form_error($element, t('Please enter right, or left.'));
+    }
+}
+
+function element_validate_characters($element) {
+    $phrase = $element['#value'];
+    if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $phrase)) {
+        form_error($element, t('Please avoid using any special characters.'));
+    }
+}
