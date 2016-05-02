@@ -1,0 +1,5 @@
+name = Custom Links
+description = add custom links to follow module
+package = My Modules
+core = 7.x
+files[] = follow_custom.module
