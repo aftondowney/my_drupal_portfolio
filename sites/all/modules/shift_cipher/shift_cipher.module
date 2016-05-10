@@ -1,14 +1,14 @@
 <?php
 
 function shift_cipher_menu() {
-    $items[shift_cipher] = array (
+    $items['shift_cipher'] = array (
         'title' => 'Shift Cipher',
         'page callback' => 'drupal_get_form',
-        'page arguments' => array(shift_cipher_form),
+        'page arguments' => array('shift_cipher_form'),
         'access callback' => TRUE,
         'type' => MENU_NORMAL_ITEM,
     );
-    $items[shift_cipher_success_page] = array(
+    $items['shift_cipher_success_page'] = array(
         'title' => 'Success',
         'page callback' => 'shift_cipher_success',
         'access callback' => TRUE,
@@ -28,7 +28,7 @@ function shift_cipher_form() {
     $form['shift_direction'] = array (
         '#title' => 'Shift Direction',
         '#type' => 'textfield',
-        '#description' => t('Please enter the direction to shifr, either left or right.'),
+        '#description' => t('Please enter the direction to shift, either left or right.'),
         '#element_validate' => array('element_validate_direction'),
         '#required' => TRUE,
     );
@@ -55,6 +55,7 @@ function element_validate_range($element) {
 
 function element_validate_direction($element) {
     $direction = strtolower($element['#value']);
+    $_SESSION['debugger'] = $direction;
     if ($direction !== 'right' && $direction !== 'left') {
         form_error($element, t('Please enter right, or left.'));
     }
@@ -78,7 +79,7 @@ function shift_cipher_form_submit($form, &$form_state) {
     $alphabet_key = array('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');
 
     $value = $form_state['values']['shift_value'];
-    $direction = $form_state['values']['shift_direction'];
+    $direction = strtolower($form_state['values']['shift_direction']);
     $phrase = str_split($form_state['values']['shift_phrase']);
     $encrypted_array = array();
 
@@ -91,11 +92,14 @@ function shift_cipher_form_submit($form, &$form_state) {
 
                   if ($direction === 'right') {
                       $shifted_value = $i + $value;
+                      if ($shifted_value > 25) {
+                        $shifted_value = $shifted_value - 26;
+                      }
                   } else {
                       $shifted_value = $i - $value;
-                  }
-                  if ($shifted_value < 0 || $shifted_value > 25) {
-                      $shifted_value = abs($shifted_value % 26);
+                      if ($shifted_value < 0) {
+                          $shifted_value = $shifted_value + 26;
+                      }
                   }
                   if ($letter === strtoupper($alphabet_key[$i])) {
                       array_push($encrypted_array, strtoupper($alphabet_key[$shifted_value]));
@@ -113,6 +117,7 @@ function shift_cipher_form_submit($form, &$form_state) {
 }
 
 function shift_cipher_success() {
+  var_dump($_SESSION['debugger']);
     $cipher = $_SESSION['encryption'];
     return 'Here is your encrypted message: ' . $cipher;
 }
