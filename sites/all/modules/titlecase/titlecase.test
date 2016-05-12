@@ -1,0 +1,54 @@
+<?php
+class TitleCaseTestCase extends DrupalUnitTestCase {
+
+    public static function getInfo() {
+        return array(
+            'name' => 'Title Case Tests',
+            'description' => 'Test that my titlecase converter works properly.',
+            'group' => 'Epicodus Examples Tests',
+        );
+    }
+
+    function testTitleCase() {
+        //Description of desired result
+        $description = 'A title with a single letter is capitalized.';
+        //Arrange
+        $input = 'a';
+        //Act
+        $result = make_title_case($input);
+        //assert
+        $expected_output - 'A';
+        $this->assertEquals($result, $expected_output, $description);
+
+        $description = 'A title with one word should be capitalized';
+        $input = 'thor';
+        $result = make_title_case($input);
+        $expected_output = 'Thor';
+        $this->assertEquals($result, $expected_output, $description);
+
+        $description = 'A title with multiple words should be capitalized';
+        $input = 'mad max';
+        $result = make_title_case($input);
+        $expected_output = 'Mad Max';
+        $this->assertEquals($result, $expected_output, $description);
+
+        $description = 'Small words should not be capitalized';
+        $input = 'once upon a time';
+        $result = make_title_case($input);
+        $expected_output = 'Once Upon a Time';
+        $this->assertEquals($result, $expected_output, $description);
+
+        $description = 'Titles that start with a small word should still have the first word capitalized';
+        $input = 'a clockwork orange';
+        $result = make_title_case($input);
+        $expected_output = 'A Clockwork Orange';
+        $this->assertEquals($result, $expected_output, $description);
+
+        $description = 'Titles with multiple words, some of which are small, should be put into title case';
+        $input = 'the lord of the rings';
+        $result = make_title_case($input);
+        $expected_output = 'The Lord of the Rings';
+        $this->assertEquals($result, $expected_output, $description);
+
+    }
+}

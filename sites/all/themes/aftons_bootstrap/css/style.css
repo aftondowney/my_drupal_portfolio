@@ -11,6 +11,9 @@
  a:hover {
    color: #627347;
  }
+ a.follow-link-github {
+  background-image: url(sites/all/modules/follow/icons/small/icon-github.png);
+ }
  .jumbotron {
    height: 250px;
    margin-bottom: 30px;

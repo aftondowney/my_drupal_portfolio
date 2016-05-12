@@ -1,0 +1,5 @@
+name = Clock Angles
+description = Find the smallest angle between the hour and minute hands of a clock.
+package = Other
+core = 7.x
+files[] = clock.module
