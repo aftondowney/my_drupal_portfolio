@@ -1,0 +1,35 @@
+<?php
+/**
+* @file
+* Hello World demonstrates the use of SimpleTest for Drupal 7.
+*/
+
+class HelloworldTests extends DrupalWebTestCase {
+
+//
+// /**
+// *Metadata about our test class_exists
+// */
+    public static function getInfo() {
+        return array(
+            // The name of the test case
+            'name' => 'Hello World',
+            // Short description of the tests this case performs
+            'description' => 'Tests for the Hello World Module',
+            // The group that this case belongs to, used for grouping //tests together in the UI
+            'group' => 'Hello World Group',
+        );
+    }
+    //
+    public function setUp() {
+        parent::setUp(array('helloworld'));
+    }
+    //
+    public function testHelloWorld() {
+        //Navigate to /helloworld
+        $this->drupalGet('helloworld');
+        // Verify that the text exists on the page.
+        $this->assertText('Hello World. Welcome to my portfolio!', 'The page content is present.');
+    }
+
+}

@@ -1,0 +1,10 @@
+<?php
+
+function simplifiedcontact_form_alter(&$form, &$form_state, $form_id) {
+    if($form_id == 'contact_site_form'){
+        $form['subject']['#access'] = FALSE;
+        $form['subject']['#default_value'] = "Feedback";
+        $form['copy']['#access'] = 0;
+
+    }
+}
