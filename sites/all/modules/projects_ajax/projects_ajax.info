@@ -1,0 +1,5 @@
+name = My Ajax Node Loader
+description = Display Nodes with Ajax
+package = Ajax
+core = 7.x
+files[] = projects_ajax.module
