@@ -4,35 +4,35 @@ class DnaTestCase extends DrupalUnitTestCase {
     public static function getInfo() {
         return array(
             'name' => 'DNA Case Tests',
-            'description' => 'Test that my DNA Helix generator is working properly.',
+            'description' => 'Test that my DNA Sequence generator is working properly.',
             'group' => 'Code Review Tests',
         );
     }
 
     function testDnaCase() {
 
-        $description = 'An "a" should become a "t".';
-        $input = 'a';
-        $result = make_dna_helix($input);
-        $expected_output = 't';
+        $description = 'each letter "A" should add a corresponding letter "T" to the end of the sequence.';
+        $input = 'A';
+        $result = make_dna_sequence($input);
+        $expected_output = 'AT';
         $this->assertEqual($result, $expected_output, $description);
 
-        $description = 'A "t" should become an "a".';
-        $input = 't';
-        $result = make_dna_helix($input);
-        $expected_output = 'a';
+        $description = 'each letter "T" should add a corresponding letter "A" to the end of the sequence.';
+        $input = 'AT';
+        $result = make_dna_sequence($input);
+        $expected_output = 'ATTA';
         $this->assertEqual($result, $expected_output, $description);
 
-        $description = 'A "c" should become a "g".';
-        $input = 'c';
-        $result = make_dna_helix($input);
-        $expected_output = 'g';
+        $description = 'each letter "C" should add a corresponding letter "G" to the end of the sequence.';
+        $input = 'ATC';
+        $result = make_dna_sequence($input);
+        $expected_output = 'ATCTAG';
         $this->assertEqual($result, $expected_output, $description);
 
-        $description = 'A "g" should become a "c".';
-        $input = 'g';
-        $result = make_dna_helix($input);
-        $expected_output = 'c';
+        $description = 'each letter "G" should add a corresponding letter "C" to the end of the sequence.';
+        $input = 'ATCG';
+        $result = make_dna_sequence($input);
+        $expected_output = 'ATCGTAGC';
         $this->assertEqual($result, $expected_output, $description);
     }
 }

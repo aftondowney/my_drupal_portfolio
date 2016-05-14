@@ -1,0 +1,63 @@
+<?php
+
+function dna_menu() {
+  $items = array();
+  $items['dna'] = array(
+    'title' => 'DNA Sequence Generator',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('dna_form'),
+    'access callback' => TRUE,
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['dna_success_page'] = array(
+      'title' => 'DNA Sequence Generator',
+      'page callback' => 'dna_success',
+      'access callback' => TRUE,
+      'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+function dna_form() {
+    $form['input'] = array(
+        '#title' => 'Enter the first half of your DNA sequence',
+        '#type' => 'textfield',
+        '#description' => t('Please enter a DNA sequence, you can use, "a", "t", "c", "g", please do not use any spaces or punctuation.'),
+        '#required' => TRUE,
+    );
+    $form['submit'] = array(
+        '#type' => 'submit',
+        '#value' => 'Complete Sequence',
+    );
+    return $form;
+}
+
+function make_dna_sequence($input) {
+
+    $input_array = str_split(strtolower($input));
+    foreach ($input_array as $character) {
+        if ($character === 'a') {
+            array_push($input_array, 't');
+        } elseif ($character === 't') {
+            array_push($input_array, 'a');
+        } elseif ($character === 'c') {
+            array_push($input_array, 'g');
+        } else {
+            array_push($input_array, 'c');
+        }
+    }
+    return implode($input_array);
+}
+
+function dna_form_submit($form, &$form_state) {
+    $input = $form_state['values']['input'];
+    $result = make_dna_sequence($input);
+    $_SESSION['sequence'] = strtoupper($result);
+
+    $form_state['redirect'] = 'dna_success_page';
+}
+
+function dna_success() {
+    $sequence = $_SESSION['sequence'];
+    return '<p>Your complete DNA sequence is: ' . $sequence . '</p>';
+}
