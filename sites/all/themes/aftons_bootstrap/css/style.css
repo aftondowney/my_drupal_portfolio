@@ -6,34 +6,39 @@
    color: #513d47;
  }
  a {
-   color: #513d47;
+   color: #6d3a59;
  }
  a:hover {
    color: #627347;
  }
  a.follow-link-github {
-  background-image: url(sites/all/modules/follow/icons/small/icon-github.png);
+  background-image: url(icons/small/icon-github.png);
  }
  .jumbotron {
-   height: 250px;
+   background-image: url(images/background.jpg);
+   /*background-repeat: no-repeat;*/
+   background-position: top;
+   height: 375px;
    margin-bottom: 30px;
    padding-top: 24px;
    padding-bottom: 12px;
    background-color: #8497A4;
  }
 .logo_image {
-  max-height: 150px;
+  height: 155px;
   padding-bottom: 20px;
   margin-left: 30px;
   margin-right: 30px;
-  padding: 0;
+  /*padding-top: 40px;*/
 }
 .site_name {
-  font-size: 45px;
+  font-size: 75px;
+  font-family: 'aclonica';
+  text-shadow: 2px 2px 2px
+#85777e;
   margin-right: 50px;
   font-weight: bold;
-  padding: 0;
-  /*padding-top: 35px;*/
+  padding-top: 80px;
 
 }
 .navbar {
@@ -41,6 +46,18 @@
   border: none;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  background-color: #6d3a59;
+  color: #d3d7d2;
+}
+.navbar-nav {
+  font-size: 25px;
+  color: #627347;
+}
+.region-sidebar-first {
+  background-color: #a8b694;
+  color: #6d3a59;
+}
+a:hover {
   background-color: #6d3a59;
   color: #d3d7d2;
 }
