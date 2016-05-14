@@ -1,0 +1,38 @@
+<?php
+class DnaTestCase extends DrupalUnitTestCase {
+
+    public static function getInfo() {
+        return array(
+            'name' => 'DNA Case Tests',
+            'description' => 'Test that my DNA Helix generator is working properly.',
+            'group' => 'Code Review Tests',
+        );
+    }
+
+    function testDnaCase() {
+
+        $description = 'An "a" should become a "t".';
+        $input = 'a';
+        $result = make_dna_helix($input);
+        $expected_output = 't';
+        $this->assertEqual($result, $expected_output, $description);
+
+        $description = 'A "t" should become an "a".';
+        $input = 't';
+        $result = make_dna_helix($input);
+        $expected_output = 'a';
+        $this->assertEqual($result, $expected_output, $description);
+
+        $description = 'A "c" should become a "g".';
+        $input = 'c';
+        $result = make_dna_helix($input);
+        $expected_output = 'g';
+        $this->assertEqual($result, $expected_output, $description);
+
+        $description = 'A "g" should become a "c".';
+        $input = 'g';
+        $result = make_dna_helix($input);
+        $expected_output = 'c';
+        $this->assertEqual($result, $expected_output, $description);
+    }
+}
