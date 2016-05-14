@@ -1,0 +1,7 @@
+name = DNA Helix
+description = user can enter half their DNA helix and the module will return the other half.
+package = Testing Practice
+core = 7.x
+files[] = dna.module
+files[] = dna.test
+dependencies[] = simpletest
