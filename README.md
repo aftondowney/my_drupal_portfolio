@@ -29,7 +29,7 @@ N/A
 
 ## Support and Contact Details
 
-If you have any issues, questions, ideas, or concerns contact me through GitHub. If you would like to make a contribution to the code, feel free to do so and notify me by e-mail.
+If you have any issues, questions, ideas, or concerns contact me through GitHub.
 
 ## Technologies Used
 
@@ -38,6 +38,7 @@ If you have any issues, questions, ideas, or concerns contact me through GitHub.
 • Simpletest<br>
 • PHP<br>
 • GIT<br>
+
 
 ## License
 MIT License
