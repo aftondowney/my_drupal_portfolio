@@ -23,9 +23,14 @@ You will need the following things properly installed on your computer:<br>
 5. Navigate to ```http://localhost:8888```
 6. Login as user:admin pw:password
 
+## For 5/13 Code Review
+1. Displaying projects for Ajax view, module named projects_ajax.
+2. Tests are in the DNA module.
+
 ## Known Bugs
 
-N/A
+1. The ajax call on the projects sidebar links is giving an Ajax HTTP error 500.
+2. Unit tests for DNA module are currently failing, although module seems to be functioning as expected.
 
 ## Support and Contact Details
 
