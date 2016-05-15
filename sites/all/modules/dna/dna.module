@@ -23,6 +23,7 @@ function dna_form() {
         '#title' => 'Enter the first half of your DNA sequence',
         '#type' => 'textfield',
         '#description' => t('Please enter a DNA sequence, you can use, "a", "t", "c", "g", please do not use any spaces or punctuation.'),
+        '#element_validate' => array('element_validate_letters'),
         '#required' => TRUE,
     );
     $form['submit'] = array(
@@ -32,6 +33,12 @@ function dna_form() {
     return $form;
 }
 
+function element_validate_letters($element) {
+    $value = $element['#value'];
+    if (preg_match("/[atgc]/i", $value) == false) {
+        form_error($element, t('Please only use "a", "t", "c", or "g", do not use any spacing or punctuation.'));
+    }
+}
 function make_dna_sequence($input) {
 
     $input_array = str_split(strtolower($input));
