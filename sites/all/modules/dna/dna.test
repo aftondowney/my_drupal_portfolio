@@ -1,15 +1,35 @@
 <?php
+class DnaTests extends DrupalWebTestCase {
+    public static function getInfo() {
+        return array(
+            'name' => 'DNA Case Functional Tests',
+            'description' => 'Tests for the DNA module.',
+            'group' => 'Code Review Tests',
+        );
+    }
+
+    public function setUp() {
+        parent::setUp(array('dna'));
+    }
+
+    public function testDna() {
+        $this->drupalGet('dna');
+
+        $this->assertText('Your complete DNA sequence is: ', 'The content is present.');
+    }
+}
+
 class DnaTestCase extends DrupalUnitTestCase {
 
     public static function getInfo() {
         return array(
-            'name' => 'DNA Case Tests',
+            'name' => 'DNA Unit Tests',
             'description' => 'Test that my DNA Sequence generator is working properly.',
             'group' => 'Code Review Tests',
         );
     }
 
-    function testDnaCase() {
+    function testDna() {
 
         $description = 'each letter "A" should add a corresponding letter "T" to the end of the sequence.';
         $input = 'A';
