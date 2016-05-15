@@ -35,6 +35,7 @@ If you have any issues, questions, ideas, or concerns contact me through GitHub.
 
 • Drupal<br>
 • phpMyAdmin<br>
+• Simpletest<br>
 • PHP<br>
 • GIT<br>
 
