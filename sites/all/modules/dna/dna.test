@@ -15,7 +15,6 @@ class DnaTests extends DrupalWebTestCase {
     public function testDna() {
         $this->drupalGet('dna');
 
-        $this->assertText('Your complete DNA sequence is: ', 'The content is present.');
     }
 }
 

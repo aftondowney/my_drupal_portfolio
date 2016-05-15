@@ -1,6 +1,6 @@
 name = Title Case
 description = Translates a phrase into title case.
-package = Testing Examples
+package = Testing Practice
 core = 7.x
 files[] = titlecase.module
 files[] = titlecase.test

@@ -1,5 +1,5 @@
 name = Simplified Contact
 description = simplifies contact form
-package = My Modules
+package = Custom Modules
 core = 7.x
 files[] = simplifiedcontact.module
