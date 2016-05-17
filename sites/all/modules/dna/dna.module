@@ -42,6 +42,7 @@ function element_validate_letters($element) {
 function make_dna_sequence($input) {
 
     $input_array = str_split(strtolower($input));
+    $new_sequence = array();
     foreach ($input_array as $character) {
         if ($character === 'a') {
             array_push($input_array, 't');
