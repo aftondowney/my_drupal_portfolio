@@ -11,7 +11,7 @@ function projects_ajax_menu() {
 }
 
 function projects_ajax_callback($js, $nid) {
-    $node = node_load($noid);
+    $node = node_load($nid);
 
     if ($js == 'nojs') {
         drupal_goto('node/' . $node->nid);

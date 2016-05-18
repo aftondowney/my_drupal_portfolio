@@ -14,7 +14,15 @@ class DnaTests extends DrupalWebTestCase {
 
     public function testDna() {
         $this->drupalGet('dna');
+        $this->assertText('Enter the first half of your DNA sequence');
+    }
 
+    public function testDnaSuccess() {
+        $this->drupalGet('dna');
+        $form_input = array();
+        $form_input['input'] = 'AT';
+        $this->drupalPost('/dna', $form_input, t('Complete Sequence'));
+        $this->assertText(t('ATTA'));
     }
 }
 
