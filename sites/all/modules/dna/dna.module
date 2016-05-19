@@ -35,7 +35,8 @@ function dna_form() {
 
 function element_validate_letters($element) {
     $value = $element['#value'];
-    if (preg_match("/[atgc]/i", $value) == false) {
+
+    if (preg_match("/[^atgc]/i", $value)) {
         form_error($element, t('Please only use "a", "t", "c", or "g", do not use any spacing or punctuation.'));
     }
 }
