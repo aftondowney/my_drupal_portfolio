@@ -1,20 +1,24 @@
-/**
- * Place your custom styles here.
- */
- body {
-   background-color: #d3d7d2;
-   color: #513d47;
- }
- a {
-   color: #6d3a59;
- }
- a:hover {
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+body {
+  background-color: #d3d7d2;
+  color: #513d47;
+}
+a {
+  color: #6d3a59;
+}
+a:hover {
    color: #627347;
- }
- a.follow-link-github {
+}
+a.follow-link-github {
   background-image: url(icons/small/icon-github.png);
- }
- .jumbotron {
+}
+.jumbotron {
    background-image: url(images/background.jpg);
    /*background-repeat: no-repeat;*/
    background-position: top;
@@ -23,7 +27,7 @@
    padding-top: 24px;
    padding-bottom: 12px;
    background-color: #8497A4;
- }
+}
 .logo_image {
   height: 155px;
   padding-bottom: 20px;
@@ -34,8 +38,7 @@
 .site_name {
   font-size: 75px;
   font-family: 'aclonica';
-  text-shadow: 2px 2px 2px
-#85777e;
+  text-shadow: 2px 2px 2px #85777e;
   margin-right: 50px;
   font-weight: bold;
   padding-top: 80px;
@@ -57,9 +60,9 @@
   background-color: #a8b694;
   color: #6d3a59;
 }
-a:hover {
+/*a:hover {
   background-color: #6d3a59;
   color: #d3d7d2;
-}
+}*/
 
 /*color palette = http://colorpalettes.net/color-palette-2783/*/

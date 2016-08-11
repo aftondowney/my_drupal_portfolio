@@ -1,0 +1,47 @@
+<?php
+
+function star_story_menu() {
+    $items['star_story'] = array (
+        'title' => 'Star Story',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('star_story_form'),
+        'access callback' => TRUE,
+        'type' => MENU_NORMAL_ITEM,
+    );
+    $items['star_story_success_page'] = array(
+        'title' => 'Success',
+        'page callback' => 'star_story_success',
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK,
+    );
+    return $items;
+}
+
+function shift_cipher_form() {
+    $form['shift_value'] = array (
+        '#title' => 'Shift Value',
+        '#type' => 'textfield',
+        '#description' => t('Please enter the number of letters you would like to shift.'),
+        '#element_validate' => array('element_validate_integer_positive', 'element_validate_range'),
+        '#required' => TRUE,
+    );
+    $form['shift_direction'] = array (
+        '#title' => 'Shift Direction',
+        '#type' => 'textfield',
+        '#description' => t('Please enter the direction to shift, either left or right.'),
+        '#element_validate' => array('element_validate_direction'),
+        '#required' => TRUE,
+    );
+    $form['shift_phrase'] = array (
+        '#title' => 'Shift Phrase',
+        '#type' => 'textfield',
+        '#description' => t('Please enter the phrase you would like to encrypt.'),
+        '#element_validate' => array('element_validate_characters', 'element_validate_numbers'),
+        '#required' => TRUE,
+    );
+    $form['submit'] = array(
+        '#type' => 'submit',
+        '#value' => 'Encrypt',
+    );
+    return $form;
+}

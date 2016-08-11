@@ -96,6 +96,10 @@ a.follow-link-newsletter {
   background-image: url(/sites/all/modules/follow/icons/large/icon-newsletter.png);
 }
 
+a.follow-link-github {
+  background-image: url(icons/small/icon-github.png);
+}
+
 /* Custom overrides for this style. */
 a.follow-link {
   height: 42px;

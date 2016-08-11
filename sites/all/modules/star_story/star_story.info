@@ -1,0 +1,5 @@
+name = Star Story
+description = this will guide a user in writing star stories
+package = Custom Modules
+core = 7.x
+files[] = star_story.module
