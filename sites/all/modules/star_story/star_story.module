@@ -3,6 +3,7 @@
 function star_story_menu() {
     $items['star_story'] = array (
         'title' => 'Star Story',
+        'description' => t('This is a four-step technique for answering behavioral interview questions. It will help you clearly explain how your past experience applies to particular interview questions.'),
         'page callback' => 'drupal_get_form',
         'page arguments' => array('star_story_form'),
         'access callback' => TRUE,
@@ -17,26 +18,33 @@ function star_story_menu() {
     return $items;
 }
 
-function shift_cipher_form() {
-    $form['shift_value'] = array (
-        '#title' => 'Shift Value',
+function star_story_form() {
+    $form['situation'] = array (
+        '#title' => 'Situation',
         '#type' => 'textfield',
-        '#description' => t('Please enter the number of letters you would like to shift.'),
-        '#element_validate' => array('element_validate_integer_positive', 'element_validate_range'),
+        '#description' => t('Describe the task you were asked to do.'),
+        '#element_validate' => array(),
         '#required' => TRUE,
     );
-    $form['shift_direction'] = array (
-        '#title' => 'Shift Direction',
+    $form['task'] = array (
+        '#title' => 'Task',
         '#type' => 'textfield',
-        '#description' => t('Please enter the direction to shift, either left or right.'),
-        '#element_validate' => array('element_validate_direction'),
+        '#description' => t('Describe the tasks, jobs, or problems you were assigned to complete.'),
+        '#element_validate' => array(),
         '#required' => TRUE,
     );
-    $form['shift_phrase'] = array (
-        '#title' => 'Shift Phrase',
-        '#type' => 'textfield',
-        '#description' => t('Please enter the phrase you would like to encrypt.'),
-        '#element_validate' => array('element_validate_characters', 'element_validate_numbers'),
+    $form['action'] = array (
+        '#title' => 'Action',
+        '#type' => 'textarea',
+        '#description' => t('Describe the actions you took. Be sure to use "I" statements.'),
+        '#element_validate' => array(),
+        '#required' => TRUE,
+    );
+    $form['result'] = array (
+        '#title' => 'Result',
+        '#type' => 'textarea',
+        '#description' => t('Describe the results of the actions you took. Be sure to include numbers if applicable.'),
+        '#element_validate' => array(),
         '#required' => TRUE,
     );
     $form['submit'] = array(
