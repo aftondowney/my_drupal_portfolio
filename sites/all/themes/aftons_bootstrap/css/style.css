@@ -9,11 +9,22 @@ body {
   background-image: url(images/background.jpg);
   color: #513d47;
 }
+.container {
+  background-color: #fcfbf9;
+  opacity: 0.8;
+}
+.main-container.container {
+  width: 1140px;
+}
+.row {
+  width: 1140px;
+  margin: none;
+}
 a {
-  color: #6d3a59;
+  color: #C81926;
 }
 a:hover {
-   color: #627347;
+   color: #84b71c;
 }
 a.follow-link-github {
   background-image: url(icons/small/icon-github.png);
@@ -38,11 +49,11 @@ a.follow-link-github {
 .site_name {
   font-size: 30px;
   font-family: 'aclonica';
-  text-shadow: 2px 2px 2px #85777e;
   margin-right: 50px;
   font-weight: bold;
-  padding-top: 80px;
-
+}
+.navbar-default .navbar-brand {
+    color: #C81926;
 }
 .navbar {
   height: 50px;
@@ -51,12 +62,14 @@ a.follow-link-github {
   border: none;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-  background-color:
-  color:
+  color: #84b71c;
 }
 .navbar-nav {
   font-size: 25px;
   color:
+}
+h2.block-title {
+  color: #2ecad0;
 }
 .region-sidebar-first {
   background-color:
