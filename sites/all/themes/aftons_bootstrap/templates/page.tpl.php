@@ -168,9 +168,6 @@
 
 <?php if (!empty($page['footer'])): ?>
   <footer class="footer <?php print $container_class; ?>">
-    <?php if (!empty($secondary_nav)): ?>
-      <?php print render($secondary_nav); ?>
-    <?php endif; ?>
     <?php print render($page['footer']); ?>
   </footer>
 <?php endif; ?>
