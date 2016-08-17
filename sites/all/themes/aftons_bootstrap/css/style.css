@@ -7,11 +7,10 @@
 }
 body {
   background-image: url(images/background.jpg);
-  color: #513d47;
 }
 .container {
-  background-color: #fcfbf9;
-  opacity: 0.8;
+  background-color: #FFFEFF;
+  opacity: 0.9;
 }
 .main-container.container {
   width: 1140px;
@@ -24,7 +23,7 @@ a {
   color: #C81926;
 }
 a:hover {
-   color: #84b71c;
+   color: #B3C83C;
 }
 a.follow-link-github {
   background-image: url(icons/small/icon-github.png);
@@ -62,14 +61,17 @@ a.follow-link-github {
   border: none;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-  color: #84b71c;
+  color: 	#B3C83C;
 }
 .navbar-nav {
   font-size: 25px;
   color:
 }
 h2.block-title {
-  color: #2ecad0;
+  color: #3AAFD1;
+}
+h1.page-header {
+  color: #C81926;
 }
 .region-sidebar-first {
   background-color:
