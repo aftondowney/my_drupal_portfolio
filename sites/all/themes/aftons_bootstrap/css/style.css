@@ -9,21 +9,18 @@ body {
   background-color: white;
 }
 /*Navbar*/
-.site_name {
-  font-size: 60px;
+a.site_name {
+  font-size: 50px;
   font-family: 'aclonica';
-  margin-right: 50px;
   font-weight: bold;
 }
 #navbar {
   display: flex;
-  flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
   height: 100px;
   width: 100%;
-  background-color: #3AAFD1;
-  border-bottom: 1px solid #000;
+  background-color: white;
 }
 .navbar-default .navbar-brand {
   color: #C81926;
@@ -39,13 +36,15 @@ a.active-trail.active {
   background-color: #3AAFD1;
 }
 .navbar-nav {
-  font-size: 25px;
+  font-size: 20px;
 }
 /*Content*/
 .container {
   margin-top: 60px;
-  background-color: #FFFEFF;
+  background-color: white;
   opacity: 0.95;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 .main-container.container {
   width: 1140px;
@@ -59,6 +58,11 @@ a {
 }
 a:hover {
    color: #B3C83C;
+}
+/*Sidebar*/
+.region-sidebar-first.well {
+  background-color: white;
+  border: none;
 }
 /*Blocks*/
 h2.block-title {
