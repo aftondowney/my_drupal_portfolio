@@ -9,18 +9,21 @@ body {
   background-color: white;
 }
 /*Navbar*/
-a.site_name {
+a.site_name.name.navbar-brand {
   font-size: 50px;
   font-family: 'aclonica';
   font-weight: bold;
+  color: #B3C83C;
 }
 #navbar {
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
   height: 100px;
-  width: 100%;
   background-color: white;
+  padding-right: 200px;
 }
 .navbar-default .navbar-brand {
   color: #C81926;
@@ -37,12 +40,12 @@ a.active-trail.active {
 }
 .navbar-nav {
   font-size: 20px;
+  align-self: flex-end;
 }
 /*Content*/
 .container {
-  margin-top: 60px;
+  margin-top: 10px;
   background-color: white;
-  opacity: 0.95;
   margin-left: 25px;
   margin-right: 25px;
 }
@@ -72,10 +75,10 @@ a.follow-link-github {
   background-image: url(icons/small/icon-github.png);
 }
 /*Basic Page*/
-.field-item.even {
+/*.field-item.even {
   display: flex;
   justify-content: center;
-}
+}*/
 .img-responsive {
   border-radius: 50%;
   margin-bottom: 15px;
@@ -84,4 +87,13 @@ a.follow-link-github {
 /*Pages*/
 h1.page-header {
   color: #C81926;
+  margin-top: 0px;
+}
+/*Resume*/
+.download-file {
+  padding-bottom: 10px;
+}
+.field-label {
+  font-size: 1.5em;
+  color: gray;
 }
