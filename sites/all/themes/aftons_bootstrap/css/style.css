@@ -5,15 +5,28 @@
        -moz-box-sizing: border-box;
             box-sizing: border-box;
 }
-body {
-  background-color: white;
+body.page-node-, body.node-type-page, body.page-clock-angle, body.page-dna, body.page-shift-cipher, body.page-titlecase, body.page-contact, body.page-resume-page, body.page-user-login, body.page-user-  {
+  background-color: #f7fafd;
+  font-family: 'Roboto', sans-serif;
+  color: #2e3939;
+}
+.main-container.container {
+  margin-top: 10;
+}
+h1.page-header {
+  font-family: 'Kalam', cursive;
+  margin-bottom: 0;
+  color: #f79c42;
+  font-size: 60px;
+  margin-top: 0px;
+  border-bottom: none;
 }
 /*Navbar*/
 a.site_name.name.navbar-brand {
   font-size: 50px;
-  font-family: 'aclonica';
   font-weight: bold;
-  color: #B3C83C;
+  color: #2e3939;
+  font-family: 'Kalam', cursive;
 }
 #navbar {
   display: flex;
@@ -22,30 +35,19 @@ a.site_name.name.navbar-brand {
   justify-content: space-between;
   align-items: center;
   height: 100px;
-  background-color: white;
+  background-color: #859593;
   padding-right: 200px;
-}
-.navbar-default .navbar-brand {
-  color: #C81926;
-}
-.navbar-default .navbar-nav > li > a {
-  color: #777;
-}
-a.active-trail.active {
-  background-color: #3AAFD1;
-}
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-  color: 	#B3C83C;
-  background-color: #3AAFD1;
 }
 .navbar-nav {
   font-size: 20px;
   align-self: flex-end;
 }
+li.leaf.active {
+  color: #f79c42;
+}
 /*Content*/
 .container {
   margin-top: 10px;
-  background-color: white;
   margin-left: 25px;
   margin-right: 25px;
 }
@@ -56,20 +58,22 @@ a.active-trail.active {
   width: 1140px;
   margin: none;
 }
-a {
-  color: #C81926;
-}
-a:hover {
-   color: #B3C83C;
+/*Welcome Page*/
+article.node-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 /*Sidebar*/
 .region-sidebar-first.well {
-  background-color: white;
+  background-color: #f7fafd;
   border: none;
 }
 /*Blocks*/
 h2.block-title {
-  color: #3AAFD1;
+  color: #f79c42;
+  font-family: 'Kalam', cursive;
 }
 a.follow-link-github {
   background-image: url(icons/small/icon-github.png);
@@ -84,16 +88,19 @@ a.follow-link-github {
   margin-bottom: 15px;
   margin-top: 15px;
 }
-/*Pages*/
-h1.page-header {
-  color: #C81926;
-  margin-top: 0px;
-}
 /*Resume*/
+h2 a {
+  color: #2e3939;
+  font-family: 'Roboto', sans-serif;
+}
 .download-file {
   padding-bottom: 10px;
 }
+.download-file a {
+  color: #859593;
+}
 .field-label {
   font-size: 1.5em;
-  color: gray;
+  color: #859593;
 }
+/*Color Palette #2432*/
